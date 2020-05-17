@@ -1,5 +1,5 @@
 /*
- * Copyright 2005-2019 ECMWF.
+ * (C) Copyright 2005- ECMWF.
  *
  * This software is licensed under the terms of the Apache Licence Version 2.0
  * which can be obtained at http://www.apache.org/licenses/LICENSE-2.0.
@@ -14,10 +14,10 @@
 #include "grib_api_internal.h"
 /* #include "grib_parser.h" */
 
-extern int yylex();
+extern int yylex(void);
 extern int yyerror(const char*);
 extern int yylineno;
-extern char* file_being_parsed();
+extern char* file_being_parsed(void);
 
 extern   grib_action*           grib_parser_all_actions;
 extern   grib_concept_value*    grib_parser_concept;

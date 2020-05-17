@@ -1,5 +1,5 @@
 #!/bin/sh
-# Copyright 2005-2019 ECMWF.
+# (C) Copyright 2005- ECMWF.
 #
 # This software is licensed under the terms of the Apache Licence Version 2.0
 # which can be obtained at http://www.apache.org/licenses/LICENSE-2.0.
@@ -88,8 +88,8 @@ grep -q '"latitudeOfLastGridPointInDegrees": -89.463' $tempLog
 # Check output from all our downloaded GRIBs
 # ----------------------------------------------------
 grib_files=`cat ${data_dir}/grib_data_files.txt`
-for file in ${grib_files}
-do
+for file in ${grib_files}; do
+  if [ "$file" = "bad.grib" ]; then continue; fi
   input=${data_dir}/$file
   ${tools_dir}/grib_ls -j $input > $tempLog
   if test "x$JSON_CHECK" != "x"; then

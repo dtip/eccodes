@@ -1,4 +1,4 @@
-# Copyright 2005-2019 ECMWF.
+# (C) Copyright 2005- ECMWF.
 
 # START grib2::section
 # SECTION 3, GRID DEFINITION SECTION
@@ -36,7 +36,7 @@ if(numberOfOctectsForNumberOfPoints  == 0){
 codetable[2] gridDefinitionTemplateNumber ('3.1.table',masterDir,localDir) =0 : dump,edition_specific;
 meta gridDefinitionDescription codetable_title(gridDefinitionTemplateNumber);
 
-alias is_rotated_grid=zero;
+alias isRotatedGrid=zero;
 
 template gridDefinitionSection "grib2/template.3.[gridDefinitionTemplateNumber:l].def";
 

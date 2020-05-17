@@ -2,7 +2,7 @@
 #      general configuration      #
 #---------------------------------#
 
-version: 2.16.0-{build}-{branch}
+version: 2.18.0-{build}-{branch}
 
 branches:
   only:
@@ -48,13 +48,11 @@ install:
                                 m2-sed ^
                                 m2-gawk ^
                                 m2-diffutils ^
-                                m2-perl
+                                m2-perl ^
+                                m2w64-ntldd-git
 
-    # get the latest version of cmake
-  - cmd: conda install -c conda-forge cmake
-
-    # other deps
-  - cmd: conda install libnetcdf
+    # get deps
+  - cmd: conda install -c conda-forge cmake libnetcdf
 
 #---------------------------------#
 #       build configuration       #
@@ -94,3 +92,17 @@ test_script:
   - cmd: codes_info
   - cmd: for /F "tokens=* USEBACKQ" %%F IN (`codes_info -s`) DO (ls %%F)
   - cmd: for /F "tokens=* USEBACKQ" %%F IN (`codes_info -d`) DO (ls %%F)
+
+#---------------------------------#
+#         notifications           #
+#---------------------------------#
+
+notifications:
+
+  # Email
+  - provider: Email
+    to:
+      - shahram.najm@ecmwf.int
+    subject: 'Build {{status}}'                  # optional
+    message: "{{message}}, {{commitId}}, ..."    # optional
+    on_build_success: false

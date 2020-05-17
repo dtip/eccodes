@@ -1,4 +1,4 @@
-# Copyright 2005-2019 ECMWF.
+# (C) Copyright 2005- ECMWF.
 
 # TEMPLATE 3.140, Lambert azimuthal equal area projection
 include "grib2/template.3.shape_of_the_earth.def";
@@ -16,14 +16,14 @@ alias Nj  = Ny;
 #  La1 - latitude of first grid point
 signed[4] latitudeOfFirstGridPoint: edition_specific ;
 alias La1 =  latitudeOfFirstGridPoint;
-meta  geography.latitudeOfFirstGridPointInDegrees   scale(latitudeOfFirstGridPoint
+meta geography.latitudeOfFirstGridPointInDegrees   scale(latitudeOfFirstGridPoint
                                                  ,one,grib2divider,truncateDegrees) : dump;
 #meta latitudeOfFirstGridPointInMicrodegrees times(latitudeOfFirstGridPoint,mAngleMultiplier,angleDivisor): no_copy;
 
 #  Lo1 - longitude of first grid point
 signed[4] longitudeOfFirstGridPoint: edition_specific ;
 alias La1 =  longitudeOfFirstGridPoint;
-meta  geography.longitudeOfFirstGridPointInDegrees   scale(longitudeOfFirstGridPoint
+meta geography.longitudeOfFirstGridPointInDegrees   scale(longitudeOfFirstGridPoint
                                                  ,one,grib2divider,truncateDegrees) : dump;
 #meta longitudeOfFirstGridPointInMicrodegrees times(longitudeOfFirstGridPoint,mAngleMultiplier,angleDivisor) : no_copy;
 
@@ -55,10 +55,8 @@ iterator lambert_azimuthal_equal_area(numberOfPoints,missingValue,values,
           latitudeOfFirstGridPointInDegrees,longitudeOfFirstGridPointInDegrees,
           standardParallel,centralLongitude,
           Dx,Dy,
-          iScansNegatively,
-          jScansPositively,
-          jPointsAreConsecutive,
-          alternativeRowScanning);
+          iScansNegatively, jScansPositively,
+          jPointsAreConsecutive, alternativeRowScanning);
 
 meta latLonValues latlonvalues(values);
 alias latitudeLongitudeValues=latLonValues;
